@@ -7,16 +7,16 @@
   "scripts": {
     "start": "node server.js",
     "build": "npm install && npm run build",
-    //"ng": "ng",
+    "ng": "ng",
    // "start": "ng s -o ---ssl true",
     //"build": "ng build",
     //"sonar": "sonar-scanner",
     //"watch": "ng build --watch --configuration development",
     //"test": "ng test",
-    //"dev:ssr": "ng run malabusWEB:serve-ssr",
-    //"serve:ssr": "node dist/malabusWEB/server/main.js",
-    //"build:ssr": "ng build && ng run malabusWEB:server",
-    //"prerender": "ng run malabusWEB:prerender"
+    "dev:ssr": "ng run malabusWEB:serve-ssr",
+    "serve:ssr": "node dist/malabusWEB/server/main.js",
+    "build:ssr": "ng build && ng run malabusWEB:server",
+    "prerender": "ng run malabusWEB:prerender"
   },
   "private": true,
   "dependencies": {
