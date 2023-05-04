@@ -6,7 +6,7 @@
   },
   "scripts": {
     "start": "node server.js",
-    "build": "npm install && npm run build",
+    "build": "npm install && npm run build"
    // "ng": "ng",
    // "start": "ng s -o ---ssl true",
     //"build": "ng build",
