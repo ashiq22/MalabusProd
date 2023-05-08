@@ -1,0 +1,67 @@
+
+        <body  style="background-color: #eaf2ff">
+            <div class="login-dark">
+              <form
+                class="form"
+                name="form"
+                (ngSubmit)="f.form.valid && onSubmit()"
+                ngForm
+                #f="ngForm"
+              >
+                <div class="row">
+                  <div class="fadeIn first">
+                    <img
+                      class="imgCnx"
+                      src="../../assets/img/logofooter.png"
+                      alt="User Icon"
+                    />
+                  </div>
+                </div>
+                <div class="connexion"><b>Connexion</b></div>
+          
+                <div class="illustration">
+                  <i class="icon ion-ios-locked-outline"></i>
+                </div>
+                <div class="form-group">
+                  <input
+                  style="color: black;"
+                    class="form-control"
+                    type="email"
+                    placeholder="Email"
+                    name="username"
+                    [(ngModel)]="form.username"
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                  style="color: black;"
+                    class="form-control"
+                    type="password"
+                    name="password"
+                    [(ngModel)]="form.password"
+                    #password="ngModel"
+                    placeholder="Password"
+                  />
+                </div>
+                <!-- 
+                                  <a class="forget" routerLink="/forgetpassword">Forgot password?</a>
+
+                -->
+                <div
+                  *ngIf="errorMessage.show"
+                  class="alert alert-danger"
+                  role="alert"
+                  style="
+                    width: 308px;
+                    margin-left: 7px;
+                    height: 26px;
+                    text-align: center;
+                    background-color: #ff000061;
+                  "
+                >
+                  <p style="margin-top: -10px">{{ errorMessage.msg }}</p>
+                </div>
+                <div><button class="login-btn">Connexion</button></div>
+              </form>
+            </div>
+          </body>

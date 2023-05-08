@@ -1,0 +1,200 @@
+<div class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card" style="background: #ffffff">
+        <div class="card-header">
+          <h4
+            class="card-title"
+            style="color: #333333; font-family: Bold; font-size: 24px"
+          >
+            Forum
+          </h4>
+        </div>
+        <hr />
+        <div class="card-body">
+          <form [formGroup]="addDateForm" (ngSubmit)="addForum()">
+            <div class="form-group row">
+              <img
+                alt="Profile Photo"
+                src="{{ form.imagePath }}"
+                style="
+                  border-radius: 40px;
+                  width: 40px;
+                  margin-left: 11px;
+                  height: 40px;
+                "
+              />
+              <div class="col-sm-10">
+                <input
+                  formControlName="textepost"
+                  class="form-control"
+                  type="text"
+                  style="
+                    height: 66px;
+                    box-shadow: 3px 3px 4px rgb(0 0 0 / 20%);
+                    border-color: cadetblue;
+                    color: gray;
+                  "
+                  placeholder="Exprimez-vous"
+                />
+              </div>
+            </div>
+
+          <br />
+
+          <table class="table">
+            <tbody>
+              <tr *ngFor="let item of dataArray; index as i">
+                <td style="color: gray">
+                  <div class="form-group row">
+                    <img
+                      alt="Profile Photo"
+                      src="{{ item.imagePath }}"
+                      style="
+                        border-radius: 40px;
+                        width: 40px;
+                        margin-left: 11px;
+                        height: 40px;
+                      "
+                    />
+
+                    <p
+                      style="color: black; margin-top: -12px; margin-left: 20px"
+                    >
+                      <b>{{ item.username }}</b>
+                    </p>
+
+                    <div class="col-sm-10">
+                      <div
+                        style="
+                          box-shadow: 3px 3px 4px rgb(0 0 0 / 20%);
+                          margin-left: -85px;
+                          width: 830px;
+                          height: 48px;
+                          border-radius: 7px;
+                        "
+                      >
+                        <p
+                          style="
+                            color: black;
+                            margin-top: 12px;
+                            margin-left: 13px;
+                          "
+                        >
+                          {{ item.textepost }}
+                        </p>
+                        <div style="margin-left: 780px">
+                          <a>
+                            <i
+                              class="bi bi-hand-thumbs-up"
+                              style="color: gray"
+                            ></i>
+                          </a>
+                          &nbsp;&nbsp;
+                          <a (click)="showText()">
+                            <i class="bi bi-chat-left" style="color: gray"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div></div>
+                  </div>
+
+                  <div
+                    style="color: black"
+                    *ngFor="let item of dataArray; index as i"
+                  >
+                  <div
+                    style="margin-left: 146px"
+                    *ngIf="textShow"
+                    class="form-group row" >
+                    
+                    <div style="color: gray; margin-top: 23px"  *ngFor="let comment of item.comments; index as j">
+                      <div>
+                        <img
+                          alt="Profile Photo"
+                          src="../../../assets/img/anime3.png"
+                          style="
+                            border-radius: 30px;
+                            width: 30px;
+                            height: 30px;
+                            margin-top: 17px;
+                          "
+                        />
+                      </div>
+                     <p style="color: black ;">
+                      {{comment.commenterPseudo}}
+                     </p>
+                    <div class="col-sm-10">
+                      <div
+                        style="
+                          box-shadow: 4px 3px 4px rgb(0 0 0 / 49%);
+                          width: 600px;
+                          height: 33px;
+                          margin-left: -15px;
+                          margin-top: 7px;
+                          border-radius: 7px;
+                          color: black;
+                        "
+                      >
+                        <p
+                          style="
+                            color: black;
+                            padding-top: 8px;
+                            padding-right: -28px;
+                            margin-left: 13px;
+                          "
+                        >
+                        </p>
+                        {{comment.commentText}}
+
+                      </div>
+                    </div>
+                  </div>
+                    <form [formGroup]="formComments"  (ngSubmit)="addComments(f)">
+                      <div class="form-group row">
+                        <img
+                          alt="Profile Photo"
+                          src="{{ form.imagePath }}"
+                          style="
+                            border-radius: 40px;
+                            width: 40px;
+                            margin-left: 11px;
+                            height: 40px;
+                          "
+                        />
+                        <div class="col-sm-10">
+                          <input
+                            name="comments"
+                            id="comments"
+                            formControlName="commentText"
+                            class="form-control"
+                            type="text"
+                            style="
+                              box-shadow: 3px 3px 4px rgb(0 0 0 / 20%);
+                              border-color: cadetblue;
+                              color: gray;
+                              margin-left: -9px;
+                              margin-top: 3px;
+                              width: 650px;
+                            "
+                            placeholder="Ecrivez un commentaire"
+                          />
+                        </div> 
+                      </div>
+                      
+                    </form>
+                  </div>
+                </div> 
+
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

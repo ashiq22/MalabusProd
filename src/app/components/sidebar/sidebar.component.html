@@ -1,0 +1,16 @@
+
+<div class="sidebar-wrapper" style="background-color: #FFFFFF ;    border-radius: 3px;" >
+  <ul class="nav">
+    <li 
+      routerLinkActive="active"
+      *ngFor="let menuItem of menuItems"
+      class="{{ menuItem.class }} nav-item"
+    >
+      <a [routerLink]="[menuItem.path]" style="color: #707070">
+        <i class="tim-icons  {{ menuItem.icon }}" style="color: #707070"></i>
+        <p style="color: #707070">{{ menuItem.title }}</p>
+      </a>
+    </li>
+  </ul>
+</div>
+

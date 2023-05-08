@@ -1,0 +1,94 @@
+<div class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card" style="background: #ffffff">
+        <div class="card-header">
+          <h4
+            class="card-title"
+            style="color: #333333; font-family: Bold; font-size: 24px"
+          >
+          Rapport des ventes Agence
+
+          </h4>
+        </div>
+        <hr />
+        <form  [formGroup]="RapportVenteagence" (ngSubmit)="rapportVenteAgence()">
+          <div class="row">
+            <div class="col">
+              <input style="   
+              margin-left: 15px; color: gray ;" formControlName="nameagency"
+               [ngbTypeahead]="search"
+              
+              type="text" class="form-control" placeholder="Agence" >
+            </div>
+            <div class="col">
+              <input type="text"  style=" 
+              
+              color: gray;
+          "  class="form-control" formControlName="nomLigne"
+                         [ngbTypeahead]="searchL"
+
+          placeholder="Ligne" >
+            </div>
+            <div class="col">
+              <input type="date" style="color: gray; 
+       " class="form-control" 
+              formControlName="dateVoyage"
+             >
+            
+
+            </div>
+            <div class="col">
+              <input type="submit" class="btn btn-info" value="Filtrer"> 
+            </div>
+          </div>
+
+        </form>
+      
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table tablesorter" id="">
+              <thead class="text-primary" style="background: #e3e9ef">
+                <tr>
+                  <th style="color: #b3b8bd; text-align: center">
+                    Nom agence
+                  </th>
+                  <th style="color: #b3b8bd; text-align: center">
+                    Ligne
+                  </th>
+                  <th style="color: #b3b8bd; text-align: center">Date voyage</th>
+                  <th style="color: #b3b8bd; text-align: center">Nombre de tickets vendu</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!--
+                <tr  *ngFor="let item of dataArray; index as i" >
+
+                -->
+                <!-- <tr *ngFor="let item of dataRecherche"
+                > -->
+                <tr>
+                  <td style="text-align: center">
+                    <p style="color: #52575d">{{dataRecherche.agenceName}}</p>
+                  </td>
+                  <td style="text-align: center">
+                    <p style="color: #52575d">{{dataRecherche.ligne}}</p>
+                  </td>
+                  <td style="text-align: center">
+                    <p style="color: #52575d">{{dataRecherche.date}}</p>
+                  </td>
+                  <td style="text-align: center">
+                    <p style="color: #52575d">{{dataRecherche.nbReservedTick}}</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

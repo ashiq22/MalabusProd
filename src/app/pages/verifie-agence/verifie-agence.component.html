@@ -1,0 +1,161 @@
+<div class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card" style="background: #ffffff">
+        <div class="card-header">
+          <h4
+            class="card-title"
+            style="color: #333333; font-family: Bold; font-size: 24px"
+          >
+            Verifier comptes agences
+          </h4>
+        </div>
+        <hr />
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-striped" id="">
+              <thead class="text-primary" style="background: #e3e9ef">
+                <tr>
+                  <th style="color: #b3b8bd">Agence</th>
+                  <th style="color: #b3b8bd">Email</th>
+                  <th style="color: #b3b8bd">Tel Agence</th>
+                  <th style="color: #b3b8bd">Adresse</th>
+
+                  <th style="color: #b3b8bd">N°CNSS</th>
+                  <th style="color: #b3b8bd">Matricule</th>
+                  <th style="color: #b3b8bd">secteur d'activité</th>
+                  <th style="color: #b3b8bd">statut légal</th>
+                  <th style="color: #b3b8bd">Personne à contacter</th>
+                  <th style="color: #b3b8bd">Accepter</th>
+                  <th style="color: #b3b8bd">Réfuser</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of dataArray; index as i">
+             
+                
+                  <td>
+                    <p style="color: #52575d">{{ item.nameagency }}</p>
+                  </td>
+                  <td>
+                    <p style="color: #52575d">{{ item.email }}</p>
+                  </td>
+                  <td>
+                    <p style="color: #52575d">{{ item.telAgence }}</p>
+                  </td>
+                  <td>
+                    <p style="color: #52575d">{{ item.adressAgencce }}</p>
+                  </td>
+
+                  <td>
+                    <p style="color: #52575d">{{ item.num_cnss }}</p>
+                  </td>
+                  <td>
+                    <p style="color: #52575d">{{ item.matricule }}</p>
+                  </td>
+                  <td>
+                    <p style="color: #52575d">{{ item.business_sector }}</p>
+                  </td>
+                  <td>
+                    <p style="color: #52575d">{{ item.legal_status }}</p>
+                  </td>
+                  <td>
+                    <p style="color: #52575d; font-weight: bold">
+                      Nom:{{ item.nompersonneContact }}
+                    </p>
+                    <p style="color: #52575d; font-weight: bold">
+                      Prénom:{{ item.prenomersonneContact }}
+                    </p>
+                    <p style="color: #52575d; font-weight: bold">
+                      Tel:{{ item.telpesContact }}
+                    </p>
+                  </td>
+                  <td>
+                    <a  (click)="accepAgence(item._id, i)"
+                      ><i
+                        class="bi bi-check-square"
+                        style="
+                          color: rgb(106, 170, 106);
+                          margin-left: 22px;
+                          font-size: 28px;
+                        "
+                      ></i
+                    ></a>
+                  </td>
+
+                  <td>
+                    <a  (click)="delete(item._id, i)"
+                      ><i
+                        class="bi bi-x-square"
+                        style="
+                          color: rgb(218, 91, 42);
+                          margin-left: 22px;
+                          font-size: 28px;
+                        "
+                      ></i
+                    ></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #acpt let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Accepter Agence</h4>
+  </div>
+  <div class="modal-body">
+    <p>Vous étes sur d'accepter cette agence ?</p>
+  </div>
+  <div class="modal-footer">
+    <button
+      (click)="modal.close('Close click')"
+      (click)="reloadPagAgence()"
+      type="submit"
+      class="btn btn-light"
+      style="background: #66a774"
+    >
+      Oui
+    </button>
+    <button
+      type="button"
+      class="btn btn-light"
+      style="background: #cc6c53"
+      (click)="modal.close('Close click')"
+    >
+      Non
+    </button>
+  </div>
+</ng-template>
+
+<ng-template #sup let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Réfuser Agence</h4>
+  </div>
+  <div class="modal-body">
+    <p>Vous étes sur de réfuser cette agence ?</p>
+  </div>
+  <div class="modal-footer">
+    <button
+      (click)="reloadPage()"
+      type="submit"
+      class="btn btn-light"
+      style="background: #66a774"
+    >
+      Oui
+    </button>
+    <button
+      type="button"
+      class="btn btn-light"
+      style="background: #cc6c53"
+      (click)="modal.close('Close click')"
+    >
+      Non
+    </button>
+  </div>
+</ng-template>

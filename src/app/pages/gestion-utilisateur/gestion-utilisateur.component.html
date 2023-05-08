@@ -1,0 +1,84 @@
+
+<div class=" content">
+  <div class=" row">
+    <div class=" col-md-12">
+      <div class="card" style="background: #FFFFFF">
+        <div class=" card-header">
+          <h4 class=" card-title" style="color: #333333 ; font-family: Bold; font-size: 24px">Gestionnaire des utilisateurs</h4>
+        </div>
+        <hr>
+        <div class=" card-body">
+          <div class=" table-responsive">
+            <table class="table table-striped" id="">
+              <thead class=" text-primary"  style="background: #E3E9EF;">
+                <tr>
+                 <th></th>
+                 <th style="color: #B3B8BD;" >Image</th>
+                 <th style="color: #B3B8BD;">ID</th>
+
+                  <th style="color: #B3B8BD;" >User</th>
+
+                  <th style="color: #B3B8BD;">Teléphone</th>
+                  <th style="color: #B3B8BD;" >Email</th>
+                  <th style="color: #B3B8BD;" >Fonction</th>
+                  <th style="color: #B3B8BD;" >Adresse</th>
+                  <th style="color: #B3B8BD;">Ville</th>
+
+                  <th style="color: #B3B8BD;" >Status</th>
+                  <th style="color: #B3B8BD;">Action</th>
+
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr  *ngFor="let item of dataArray; index as i">
+                    <td>
+                            <input type="radio" name="exampleRadios" id="exampleRadios2" >
+                           
+                    </td>
+
+                    <td> <div class=" photo">
+              <img alt="Profile Photo" src="{{ item.imagePath }}" onerror="this.src='../../../../../assets/img/149071.png'" />
+            </div></td>
+            <td><p style="color: #52575D;">{{ item.id_user }}</p></td>
+
+                  <td><p style="color: #52575D;">{{ item.fname }} {{ item.lname }}</p></td>
+                  <td><p style="color: #52575D;"> {{ item.phoneNum }} </p></td>
+                  <td><p style="color: #52575D;"> {{ item.email }} </p></td>
+                  <td><p style="color: #52575D;"> {{ item.job }} </p></td>
+
+                  <td><p style="color: #52575D;"> {{ item.address }} </p></td>
+                  <td><p style="color: #52575D;"> {{ item.city }} </p></td>
+
+
+
+                  <td ><p style="color: #52575D;">
+                    <span class="badge badge-pill badge-success" style="background: rgb(78, 139, 78)" *ngIf="item.status === 'Active'">Active</span>
+                    <span class="badge badge-pill badge-success" style="background: rgb(219, 118, 78)" *ngIf="item.status === 'Pending'">Pending</span>
+                  </p></td>
+                  <td  >
+                    <a  (click)="delete(item._id,i)" ><i class="bi bi-x-square" style="color: rgb(218, 91, 42);margin-left: 22px;        font-size: 28px;
+                      "></i></a>
+                   </td>
+                  
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #sup let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Supprimer utilsisateur</h4>
+  </div>
+  <div class="modal-body">
+    <p>Vous étes sur de supprimer cette utilisateur ?</p>
+  </div>
+  <div class="modal-footer">
+    <button (click)="reloadPage()" type="submit" class="btn btn-light" style="background: #66a774" >Oui</button>
+    <button type="reset" class="btn btn-light" style="background: #cc6c53" (click)="modal.close('Close click')">Non</button>
+  </div>
+</ng-template>

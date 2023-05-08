@@ -1,0 +1,113 @@
+<div class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card" style="background: #ffffff">
+        <div class="card-header">
+          <h4
+            class="card-title"
+            style="color: #333333; font-family: Bold; font-size: 24px"
+          >
+            Contacts
+          </h4>
+        </div>
+        <hr />
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table tablesorter" id="">
+              <thead class="text-primary" style="background: #e3e9ef">
+                <tr>
+                  <th style="color: #b3b8bd; text-align: center">
+                    Nom voyageur
+                  </th>
+                  <th style="color: #b3b8bd; text-align: center">
+                    Email Voyageur
+                  </th>
+                  <th style="color: #b3b8bd; text-align: center">Message</th>
+                  <th style="color: #b3b8bd; text-align: center">Répondre</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of dataArray; index as i">
+                  <td style="text-align: center">
+                    <p style="color: #52575d">{{ item.nomUser }}</p>
+                  </td>
+                  <td style="text-align: center">
+                    <p style="color: #52575d">{{ item.emailUser }}</p>
+                  </td>
+                  <td style="text-align: center">
+                    <p style="color: #52575d">{{ item.texte }}</p>
+                  </td>
+                  <td style="text-align: center">
+                    <a (click)="open(content,item ,item._id)" 
+                      ><i
+                        class="bi bi-chat-left"
+                        style="
+                          color: rgb(24, 82, 207);
+                          margin-left: 22px;
+                          font-size: 28px;
+                        "
+                      ></i
+                    ></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Répondre aux message!</h4>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="addContactForm" (ngSubmit)="addContact()">
+      <div class="mb-3">
+        <label for="dateOfBirth">Email Voyageur</label>
+        <div class="input-group">
+          <input
+          formControlName="email_User"
+            class="form-control"
+            disabled
+            [(ngModel)]="dataC.emailUser"
+            style="
+              color: #52575d;
+              background-color: transparent;
+              border-left: inset;
+              border-right: inset;
+            "
+          />
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="dateOfBirth">Message</label>
+        <div class="input-group">
+          <textarea
+          formControlName="texteRep"
+
+          [(ngModel)]="dataC.texteRep"
+            class="form-control"
+            style="
+              color: #52575d;
+              border-left: inset;
+              border-top: inset;
+              border-right: inset;
+            "
+          ></textarea>
+        </div>
+      </div>
+        <div class="modal-footer">
+    <button type="submit" class="btn btn-success">
+      Envoyer
+    </button>
+    <button type="reset" class="btn btn-danger" (click)="c('Save click')">
+      Annuler
+    </button>
+  </div>
+    </form>
+  </div>
+
+</ng-template>

@@ -1,0 +1,52 @@
+
+  <body style="background-color: white">
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+          <!-- Tabs Titles -->
+          <div class="fadeIn first mt-4">
+              <a href="">
+                <img src="../../assets/img/logofooter.png"  alt="">
+              </a>
+         </div>
+          <!-- Icon -->
+          <div class="fadeIn first">
+             <h3 style="color: gray">Retrouvez votre compte
+            </h3>
+          </div>
+          <div class="fadeIn first">
+            <p style="color: gray">
+                    
+    Veuillez entrer votre adresse e-mail  pour rechercher votre compte.
+            </p>
+         </div>
+      
+          <!-- Login Form -->
+          <form
+          name="form"
+          (ngSubmit)="f.form.valid && forgetPass()"
+          ngForm
+          #f="ngForm"
+          >
+            <input type="email" style="border-color:rgb(133, 128, 128) ; color: black;           " class="form-control input-login" 
+            name="email"
+            [(ngModel)]="form.email"
+            #email="ngModel"
+            placeholder="Adresse e-mail">
+            <button  style="margin-left: 0%;" class="btn-login">Rechercher</button>
+            <div  *ngIf="showMsg" class="alert alert-success" role="alert" style=" width: 308px; margin-left: 68px ; 
+            margin-top: 15px;">
+              Vouillé consulter votre compte Gmail
+            </div>
+            <div *ngIf="errorMessage.show" class="alert alert-danger" role="alert" style=" width: 308px; margin-left: 68px ;  margin-top: 15px;">
+              {{errorMessage.msg}}
+            </div>
+          </form>
+          <!-- Remind Passowrd -->
+          <div id="formFooter">
+          </div>
+      
+        </div>
+      </div>
+  </body>
+  
+ 

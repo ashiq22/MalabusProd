@@ -1,0 +1,52 @@
+<div class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card" style="background: #ffffff">
+        <div class="card-header">
+          <h4
+            class="card-title"
+            style="color: #333333; font-family: Bold; font-size: 24px"
+          >
+          Rapport des ventes clients
+          </h4>
+        </div>
+        <hr />
+       
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table tablesorter" id="">
+              <thead class="text-primary" style="background: #e3e9ef">
+                <tr>
+                  <th style="color: #b3b8bd; text-align: center">
+                    Nom voyageur
+                  </th>
+                  <th style="color: #b3b8bd; text-align: center">
+                    Email Voyageur
+                  </th>
+                  <th style="color: #b3b8bd; text-align: center">Date voyage</th>
+                  <th style="color: #b3b8bd; text-align: center">Nom ligne</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr  *ngFor="let item of dataArray; index as i" >
+                  <td style="text-align: center">
+                    <p style="color: #52575d"> {{ item.lname }} {{ item.fname }}  </p>
+                  </td>
+                  <td style="text-align: center">
+                    <p style="color: #52575d">{{ item.email_User }}</p>
+                  </td>
+                  <td style="text-align: center">
+                    <p style="color: #52575d">{{ item.dateVoyage }}</p>
+                  </td>
+                  <td style="text-align: center">
+                    <p style="color: #52575d">{{ item.nomLigne }}</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
