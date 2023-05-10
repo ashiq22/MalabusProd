@@ -4,10 +4,10 @@ import { Observable, throwError } from 'rxjs';
 import { Voyageur } from '../model/voyageur';
 import { Agence } from '../model/agence';
 import { catchError, map } from 'rxjs/operators';
-const URLC = 'https://malabuss.herokuapp.com/user/';
-const URL = 'https://malabuss.herokuapp.com/admin/';
-const URLF = 'https://malabuss.herokuapp.com/forum/';
-const AUTH_API = 'https://malabuss.herokuapp.com/user/';
+const URLC = 'https://malabusfront1.onrender.com/user/';
+const URL = 'https://malabusfront1.onrender.com/admin/';
+const URLF = 'https://malabusfront1.onrender.com/forum/';
+const AUTH_API = 'https://malabusfront1.onrender.com/user/';
 const httpOptions = {
   headers: new HttpHeaders({ 'x-access-token': '${TOKEN_KEY}' })
 }
@@ -22,8 +22,8 @@ export class UserService {
 
 
 
-  baseUri: string = 'https://malabuss.herokuapp.com/user';
-  baseUriAgence: string = 'https://malabuss.herokuapp.com/agency';
+  baseUri: string = 'https://malabusfront1.onrender.com/user';
+  baseUriAgence: string = 'https://malabusfront1.onrender.com/agency';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -52,7 +52,7 @@ export class UserService {
 
 
   confirmUser(confirmationCode: any) {
-    return this.httpClient.get<any>('https://malabuss.herokuapp.com/user/confirm/' + confirmationCode);
+    return this.httpClient.get<any>('https://malabusfront1.onrender.com/user/confirm/' + confirmationCode);
   }
 
 
@@ -84,7 +84,7 @@ export class UserService {
     let Options = {
       headers: new HttpHeaders({ 'x-access-token': this.user.token })
     }
-    return this.httpClient.put('https://malabuss.herokuapp.com/user/updateProfil/' + id, newuser, Options)
+    return this.httpClient.put('https://malabusfront1.onrender.com/user/updateProfil/' + id, newuser, Options)
   }
   createAgence(data: Agence) {
     let API_URL = `${this.baseUriAgence}/register`;
@@ -106,11 +106,11 @@ export class UserService {
 
 
   getForum = () => {
-    return this.httpClient.get('https://malabuss.herokuapp.com/forum/listeForums');
+    return this.httpClient.get('https://malabusfront1.onrender.com/forum/listeForums');
   }
 
   getArret = () => {
-    return this.httpClient.get('https://malabuss.herokuapp.com/agency/listeAll-arret');
+    return this.httpClient.get('https://malabusfront1.onrender.com/agency/listeAll-arret');
   }
   getTicket(data: any): Observable<any> {
     let API_URL = `${this.baseUri}/recherche_voyage`;
@@ -150,7 +150,7 @@ export class UserService {
   }
 
   addForum(data: any): Observable<any> {
-    let API_URL = `https://malabuss.herokuapp.com/forum/ajouterFourum/`;
+    let API_URL = `https://malabusfront1.onrender.com/forum/ajouterFourum/`;
     return this.httpClient.post(API_URL, data)
   }
 
