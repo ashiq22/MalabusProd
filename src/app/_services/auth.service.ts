@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-const AUTH_API = 'https://malabuss.herokuapp.com/user/';
-const AUTH_API_Agence = 'https://malabuss.herokuapp.com/agency/';
+const AUTH_API = 'https://malabusfront1.onrender.com/user/';
+const AUTH_API_Agence = 'https://malabusfront1.onrender.com/agency/';
 
 let httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8' })
