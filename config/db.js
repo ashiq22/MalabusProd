@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 
 //connect data
-mongoose.connect('mongodb+srv://' + process.env.DB_USER_PASS+ '@malabus.wp0djog.mongodb.net/malabus', {
+mongoose.connect('mongodb+srv://malabus:devopsdevops@malabus.wp0djog.mongodb.net/?retryWrites=true&w=majority', {
     useNewUrlParser: true,
   useUnifiedTopology: true,
 }).then(() => console.log('Connected to MongoDB'))
