@@ -12,6 +12,8 @@ jobs:
     steps:
     - name: Checkout source code
       uses: actions/checkout@v2
+      with:
+          node-version: 16
 
     - name: SonarQube Scan
       uses: kitabisa/sonarqube-action@v1.2.0
